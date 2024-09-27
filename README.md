@@ -13,3 +13,4 @@ Resume : https://github.com/Vikramadtya/Resume/blob/main/Resume%201/resume.pdf
 
 ### Score
 
+![](https://github.com/Vikramadtya/Resume/blob/main/Assets/Score.png)

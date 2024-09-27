@@ -2,7 +2,7 @@
 My resume
 
 ## Checker 
-- https://www.resumego.net/resume-checker/
+1. https://www.resumego.net/resume-checker/
 
 
 

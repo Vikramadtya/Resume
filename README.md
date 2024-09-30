@@ -4,6 +4,9 @@ My resume
 ## Checker 
 - https://www.resumego.net/resume-checker/
 
+## Formatter
+- https://c.albert-thompson.com/latex-pretty/
+
 
 
 ## Resume 1

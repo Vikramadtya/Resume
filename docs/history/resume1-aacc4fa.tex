@@ -1,0 +1,312 @@
+%-------------------------
+% Resume in Latex
+% Author : Vikramaditya Singh
+% Based off of: https://github.com/sb2nov/resume
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{fontawesome5}
+\usepackage{multicol}
+\setlength{\multicolsep}{-3.0pt}
+\setlength{\columnsep}{-1pt}
+\input{glyphtounicode}
+
+
+%----------FONT OPTIONS----------
+% sans-serif
+% \usepackage[sfdefault]{FiraSans}
+% \usepackage[sfdefault]{roboto}
+% \usepackage[sfdefault]{noto-sans}
+% \usepackage[default]{sourcesanspro}
+
+% serif
+% \usepackage{CormorantGaramond}
+% \usepackage{charter}
+
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.6in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1.19in}
+\addtolength{\topmargin}{-.7in}
+\addtolength{\textheight}{1.4in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large\bfseries
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate pdf is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\classesList}[4]{
+    \item\small{
+        {#1 #2 #3 #4 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-2pt}\item
+    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & \textbf{\small #2} \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \item
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeProjectHeading}[2]{
+    \item
+    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
+      \small#1 & \textbf{\small #2}\\
+    \end{tabular*}\vspace{-7pt}
+}
+
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+
+\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING----------
+\begin{center}
+  {\Huge \scshape Vikramaditya Singh} \\ \vspace{2pt}
+  \small \href{https://www.vikramaditya-singh.in}{\raisebox{-0.1\height}\faGlobe\ \underline{vikramaditya-singh.in}} ~ \href{mailto:vikramaditya.bhadoria@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{vikramaditya.bhadoria@gmail.com}} ~
+  \href{https://linkedin.com/in//}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin/VikrmadityaSngh}}  ~
+  \href{https://github.com/Vikramadtya}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/Vikramadtya}}
+  \vspace{-8pt}
+\end{center}
+
+%-----------EXPERIENCE-----------
+\section{Profile}
+Computer Science Engineering graduate with expertise in algorithms, data structures, application development, operating systems, networking, and databases, along with solid knowledge of cybersecurity. Highly adaptable, eager to learn, and focused on continuous improvement. Core strengths include reliability, ownership, and excellent interpersonal skills, with a strong ability to solve problems creatively and collaborate effectively.
+
+\section{Experience}
+\resumeSubHeadingListStart
+
+\resumeSubheading
+{CISCO}{Bangalore, India}
+{Software Engineer II}{August 2021 - present}
+\resumeItemListStart
+\resumeItem{Enhanced NAP \& IPS policy snapshot, cutting operation time by 70\% and reducing FMC device configuration deployment time.}
+\resumeItem{Designed and implemented Zero Trust policy on FMC, including full backend development (API, global search, database, services, validations, reporting, audit, telemetry).}
+\resumeItem{Developed changes for Zero Trust policy deployment, adding Snort3 configuration creation and enhancing Lina CLI generation with new commands.}
+\resumeItem{Implemented auto-enrollment of certificates within the Zero Trust policy, significantly enhancing device integration and user experience.}
+\resumeItem{Enhanced NAP \& IPS policy snapshot, cutting operation time by 70\% and reducing FMC device configuration deployment time.}
+\resumeItem{Designed and implemented Zero Trust policy on FMC, including full backend development (API, global search, database, services, validations, reporting, audit, telemetry).}
+\resumeItem{Developed changes for Zero Trust policy deployment, adding Snort3 configuration creation and enhancing Lina CLI generation with new commands.}
+\resumeItem{Implemented auto-enrollment of certificates within the Zero Trust policy, significantly enhancing device integration and user experience.}
+\resumeItemListEnd
+
+\resumeSubheading
+{}{}
+{Software Engineer}{May 2020 – July 2020}
+\resumeItemListStart
+\resumeItem{Improved FMC device listing and management page performance, reducing load time by 96\%.}
+\resumeItem{Added API support for Snort3 rule querying based on the MITRE framework.}
+\resumeItem{Implemented changes to display rule movement in the audit log, enhancing the user experience.}
+\resumeItem{Added Elephant Flow Detection to the Access Policy, including backend and deployment changes for Lina and Snort3.}
+\resumeItem{Integrated PDF reporting, audit logs, delta preview, and telemetry for Elephant Flow Detection \& Threat Detection settings.}
+\resumeItem{Implemented dynamic warning framework for FMC device upgrade flows using React.}
+\resumeItemListEnd
+
+\vspace{10pt}
+
+\resumeSubheading
+{SECURONIX}{Pune, India}
+{SDE Intern}{April 2021 - August 2020}
+\resumeItemListStart
+\resumeItem{Developed email microservice and automated incident report generation using Spring Framework and Jasper Reports.}
+\resumeItem{Created scripts to automate various task.}
+\resumeItem{Automated report creation for analysis from the data for CTA
+team.}
+\resumeItemListEnd
+
+\vspace{10pt}
+
+
+\resumeSubheading
+{CISCO}{Bangalore, India}
+{SDE Intern}{May 2020 – July 2020}
+\resumeItemListStart
+\resumeItem{Developed a gRPC detector for Snort 2.9.16 and integrated it with FTD to enable alert generation.}
+\resumeItem{Worked on the preprocessor framework for scanning the
+message content transferred via. gRPC for malicious payloads.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-5pt}
+
+%-----------PROJECTS-----------
+\section{Publication}
+\vspace{-5pt}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+{\textbf{Inception Time Model for Structural Damage Detection Using Vibration Measurements}}{March 2024}
+\resumeSubSubheading{  In book\: Fourth Congress on Intelligent Systems (pp.103-122), Springer, Singapore, 31 March 2024}{}
+\resumeSubHeadingListEnd
+\textit{\small \href{https://link.springer.com/chapter/10.1007/978-981-99-9040-5_7}}
+\vspace{-20pt}
+\textit{\small  DOI: 10.1007/978-981-99-9040-5\_7}
+\vspace{-13pt}
+
+%-----------PROJECTS-----------
+\section{Projects}
+\vspace{-5pt}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+{\textbf{ExSplit} $|$ \emph{Spring Boot, ReactJs, ECS, S3, Google Auth, Github Action}}{\href{}{demo} $|$ \href{}{code}}
+\resumeItemListStart
+\resumeItem{Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.}
+\resumeItem{Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.}
+\resumeItem{Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.}
+\resumeItemListEnd
+\vspace{-13pt}
+\resumeProjectHeading
+{\textbf{Tech Blog : NeuralCook} $|$ \emph{NextJs, AWS Amplify, FireStore, MailGun, Github Action}}{\href{}{demo} $|$ \href{}{code}}
+\resumeItemListStart
+\resumeItem{Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.}
+\resumeItem{Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.}
+\resumeItem{Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.}
+\resumeItemListEnd
+\vspace{-13pt}
+\resumeProjectHeading
+{\textbf{Domain Generating Algorithm Detection} $|$ \emph{Python, Keras, Pandas, Google Collab}}{\href{}{code}}
+\resumeItemListStart
+\resumeItem{Detected algorithmically generated domains with 96\% accuracy and classified them by DGA variant with 87\% accuracy, using clustering to identify unknown DGA variants.}
+\resumeItemListEnd
+\vspace{-13pt}
+\resumeProjectHeading
+{\textbf{Portfolio Site} $|$ \emph{NextJs, Vercel, Slack,  Github Action}}{\href{}{demo}}
+\resumeItemListStart
+\resumeItem{Created an Android application using Java and Android Studio to calculate ticket prices for trips to museums in NYC.}
+\resumeItem{Processed user inputted information in the back-end of the app to return a subtotal price based on the tickets selected.}
+\resumeItem{Utilized the layout editor to create a UI for the application in order to allow different scenes to interact with each other.}
+\resumeItemListEnd
+\resumeSubHeadingListEnd
+\vspace{-15pt}
+
+
+%-----------ACHIEVEMENT-----------
+\section{Achievment}
+\vspace{-5pt}
+\resumeSubHeadingListStart
+\resumeProjectHeading
+{\textbf{Smart India Hackathon}}{2019}
+\vspace{-28pt}
+\resumeSubheading
+{}{}
+{Finalist for hardware edition}{}
+\resumeItemListStart
+\resumeItem{
+Built Mobile Based
+Irrigation Assistant app using
+firebase cloud for the backend and
+designed the network deployment
+(using LoRaWAN) of the device to
+overcome range limitation.}
+\resumeItemListEnd
+
+\resumeSubHeadingListEnd
+\vspace{-15pt}
+
+%-----------EDUCATION-----------
+\section{Education}
+\resumeSubHeadingListStart
+\resumeSubheading
+{Indian Institute of Information Technology, Guwahati}{2017-2021}
+{Bachelor of Technology in Computer Science Engineering}{Cum. GPA: 8.48}
+
+\resumeSubheading
+{Modern Delhi Public School, Faridabad}{2015 - 2016}
+{12th Science from CBSE Board}{87\%}
+
+\resumeSubheading
+{Dynasty International School, Faridabad}{2013-2014}
+{10th from CBSE Board}{Cum. GPA: 9.8}
+
+\resumeSubHeadingListEnd
+
+%
+%-----------PROGRAMMING SKILLS-----------
+\section{Technical Skills}
+\begin{itemize}[leftmargin=0.01in, label={}]
+  \small{\item{
+        \textbf{Languages}{: Java, SQL, Javascript, Python, C, Perl} \\
+        \textbf{Frameworks}{: ReactJs, NextJs, Spring, Spring Boot, Hibernate} \\
+        \textbf{Technologies}{: Docker, Jenkins, Git, Terraform, Lucene} \\
+        \textbf{Databases}{: MariaDB, MongoDB, Redis } \\
+        \textbf{Cloud}{: AWS} \\
+        \textbf{Developer Tools}{: Swagger, Postman, Data Dog} \\
+        }}
+\end{itemize}
+\vspace{-16pt}
+
+
+
+%------RELEVANT COURSEWORK-------
+\section{Relevant Coursework}
+%\resumeSubHeadingListStart
+\begin{multicols}{3}
+  \begin{itemize}[itemsep=-5pt, parsep=3pt]
+    \item\small Data Structure \& Algorithms
+    \item Computer Network \& Security
+    \item Operating System
+    \item RDBMS
+    \item OOP \& Design Patterns
+    \item Software Engineering
+    \item Deep Learning
+  \end{itemize}
+\end{multicols}
+\vspace*{2.0\multicolsep}
+%\resumeSubHeadingListEnd
+
+\end{document}

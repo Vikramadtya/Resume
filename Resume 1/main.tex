@@ -5,13 +5,13 @@
 % License : MIT
 %------------------------
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[letterpaper, 11pt]{article}
 
 \usepackage{latexsym}
 \usepackage[empty]{fullpage}
 \usepackage{titlesec}
 \usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
+\usepackage[usenames, dvipsnames]{color}
 \usepackage{verbatim}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
@@ -21,9 +21,10 @@
 \usepackage{fontawesome5}
 \usepackage{multicol}
 \setlength{\multicolsep}{-3.0pt}
-\setlength{\columnsep}{-1pt}
+\usepackage{iftex}
+\ifPDFTeX
 \input{glyphtounicode}
-
+\fi
 
 %----------FONT OPTIONS----------
 % sans-serif
@@ -36,12 +37,12 @@
 % \usepackage{CormorantGaramond}
 % \usepackage{charter}
 
-
 \pagestyle{fancy}
 \fancyhf{} % clear all header and footer fields
 \fancyfoot{}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
+\setlength{\footskip}{5pt} % Fixes the Fancyhdr Warning
 
 % Adjust margins
 \addtolength{\oddsidemargin}{-0.6in}
@@ -57,304 +58,184 @@
 \setlength{\tabcolsep}{0in}
 
 % Sections formatting
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large\bfseries
-}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+\titleformat{\section}{\scshape\raggedright\large\bfseries}{}{0em}{}[\color{black}\titlerule]
+\titlespacing{\section}{0pt}{10pt}{5pt}
 
-% Ensure that generate pdf is machine readable/ATS parsable
+% Ensure that generated pdf is machine readable/ATS parsable
+\ifPDFTeX
 \pdfgentounicode=1
+\fi
 
 %-------------------------
 % Custom commands
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
+\newcommand{\resumeItem}[1]{ \item\small{#1} }
 
-\newcommand{\classesList}[4]{
-    \item\small{
-        {#1 #2 #3 #4 \vspace{-2pt}}
-  }
-}
+\newcommand{\classesList}[4]{ \item\small{#1 #2 #3 #4} }
 
 \newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{1.0\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & \textbf{\small #2} \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
+\item
+\begin{tabular*}{\textwidth}[t]{l@{\extracolsep{\fill}}r}
+	\textbf{#1}       & \textbf{\small #2} \\
+	\textit{\small#3} & \textit{\small #4} \\
+\end{tabular*}
 }
 
-\newcommand{\resumeSubSubheading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \textit{\small#1} & \textit{\small #2} \\
-    \end{tabular*}\vspace{-7pt}
+\newcommand{\resumeSubSubheading}[2]{ \item
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+	\textit{\small#1} & \textit{\small #2} \\
+\end{tabular*}
 }
 
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{1.001\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & \textbf{\small #2}\\
-    \end{tabular*}\vspace{-7pt}
+\newcommand{\resumeProjectHeading}[2]{ \item
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+	\small#1 & \textbf{\small #2} \\
+\end{tabular*}
 }
 
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
+\newcommand{\resumeSubItem}[1]{\resumeItem{#1}}
 
-\renewcommand\labelitemi{$\vcenter{\hbox{\tiny$\bullet$}}$}
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemi}{$\vcenter{\hbox{\tiny$\bullet$}}$}
+\renewcommand{\labelitemii}{$\vcenter{\hbox{\tiny$\bullet$}}$}
 
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}]}
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.0in, label={}, itemsep=3pt, parsep=0pt, topsep=2pt, partopsep=0pt]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=0.15in, itemsep=1pt, parsep=0pt, topsep=2pt, partopsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}}
 
 %-------------------------------------------
 %%%%%%  RESUME STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-
 \begin{document}
+	%----------HEADING----------
+	\begin{center}
+		{\Huge \scshape Vikramaditya Singh} \\ \vspace{2pt}
+		\small \href{https://www.vikramaditya-singh.in}{\raisebox{-0.1\height}{\faGlobe}\ \underline{vikramaditya-singh.in}}
+		~ \href{mailto:vikramaditya.bhadoria@gmail.com}{\raisebox{-0.2\height}{\faEnvelope}\
+		\underline{vikramaditya.bhadoria@gmail.com}} ~ \href{https://www.linkedin.com/in/vikrmadityasngh/}{\raisebox{-0.2\height}{\faLinkedin}\ \underline{linkedin.com/in/vikrmadityasngh}} \\ \vspace{2pt}
+		\href{https://github.com/Vikramadtya}{\raisebox{-0.2\height}{\faGithub}\ \underline{github.com/Vikramadtya}}
+		~ {\raisebox{-0.2\height}{\faPhone}\ \underline{+91\vphantom{/} 8383821898}}
+	\end{center}
 
-%----------HEADING----------
-\begin{center}
-	{\Huge \scshape Vikramaditya Singh} \\ \vspace{2pt}
-	\small \href{https://www.vikramaditya-singh.in}{\raisebox{-0.1\height}\faGlobe\ \underline{vikramaditya-singh.in}} ~ \href{mailto:vikramaditya.bhadoria@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{vikramaditya.bhadoria@gmail.com}} ~
-	\href{https://www.linkedin.com/in/vikrmadityasngh/}{\raisebox{-0.2\height}\faLinkedin\ \underline{linkedin.com/in/vikrmadityasngh}} \\
+	%-----------EXPERIENCE-----------
+	\section{Profile}
+	Senior Software Engineer with 5+ years of experience designing and building event-driven backend systems, microservices, and cloud-native platforms. Strong background in Java, OCI, AWS, databases, distributed systems, and performance optimisation, with experience owning services end-to-end from architecture and API design through deployment and observability. Experienced in Spec-Driven Development (SDD), with a track record of mentoring engineers and establishing reusable engineering foundations across teams. Effective in cross-team collaboration, translating complex technical concepts into clear solutions, and driving solutions amid evolving product and engineering requirements.
+
+	\section{Experience}
+	\resumeSubHeadingListStart
+
+	\resumeSubheading {ORACLE}{Bangalore, India} {Senior Member of Technical Staff}{April 2025 -- present}
+	\resumeItemListStart 
+	\resumeItem{Designed and developed an event-driven microservice that ingests clinical-data changes and generates safety-critical advisories.}
+	\resumeItem{Designed and implemented a low-latency notification microservice enabling automatic data refresh for the Patient List UI.}
+	\resumeItem{Created a reusable microservice scaffolding template and shared integration framework for the platform's clinical-data layer, decreasing new-service setup time by 30\%.}
+	\resumeItem{Implemented an asynchronous PDF generation microservice for patient-list reporting using Thymeleaf and OpenHTMLToPDF.}
+	\resumeItem{Owned CI/CD pipelines for the Patient Advisory, Patient List, Care Notification, and Consult microservices using OCI CI/CD, and built Grafana dashboards and alerts for service monitoring and proactive issue detection.}
+	\resumeItem{Designed and implemented the core Patient List and Patient Detail APIs, then enhanced their performance by 60\% through query optimization and caching.}
+	\resumeItem{Converted multiple OpenSearch queries to SQL for the Oracle ATP database, simplifying and optimizing them to improve performance by 12\%.}
+	\resumeItem{Developed a data migration module for Acute Organiser to migrate multiple clinical concepts from Gen 1 to Gen 2 EHRC.}
+	\resumeItem{Implemented 5+ FHIR clinical concepts into data models and onboarded them in the EHRC framework, enabling the platform to support new clinical data types and use cases.}
+	\resumeItem{Designed and implemented an MCP service and reusable framework using FastMCP to query Acute Organizer services.}
+	\resumeItem{Applied a Spec-Driven Development (SDD) approach to design and implement consult microservice, reducing development time by 40\%.}
+	\resumeItemListEnd
+
+	\resumeSubheading {CISCO}{Bangalore, India} {Software Engineer III}{August 2021 -- April 2025}
+	\resumeItemListStart 
+	\resumeItem{Architected and scaled the backend for the Policy Analyser and Optimiser (PAO) platform from the ground up, including anomaly detection, automated remediation, and a multi-version policy converter, enabling analysis across 300+ cloud firewall configurations.}
+	\resumeItem{Built a pub/sub framework on AWS SQS/SNS that delivered real-time analysis updates across 4+ downstream services.}
+	\resumeItem{Reduced FMC device listing and management page load time by 96\% through pagination, caching, query optimization.}
+	\resumeItem{Cut Intrusion Prevention System (IPS) and Network Analysis Policy (NAP) snapshot creation time by 70\%, accelerating policy deployment from management center to firewalls for the enterprise customers.}
+	\resumeItem{Led backend development for a Zero Trust network access policy feature on Firewall Management Center, spanning APIs, persistence, validation, auditing, and telemetry, including automated certificate auto-enrollment that reduced device onboarding time by 25\%.}
+	\resumeItem{Extended FMC's API surface to support Snort3 rule querying against the MITRE framework, and shipped audit-log/delta-preview visibility for access-policy rule changes, improving traceability for security teams.}
+	\resumeItem{Delivered end-to-end support for Elephant Flow Detection and Threat Detection, spanning configuration, deployment, PDF reporting, and audit telemetry.}
+	\resumeItem{Owned CI/CD pipeline automation for build, test, and deployment, and built custom Datadog dashboards with proactive alerting, reducing incident detection time by 70\%.}
+	\resumeItemListEnd
+
+	\resumeSubheading {SECURONIX}{Pune, India} {SDE Intern}{August 2020 -- April 2021}
+	\resumeItemListStart 
+	\resumeItem{Developed email microservice and automated incident report generation using Spring Framework and Jasper Reports.}
+	\resumeItemListEnd
+
+	\resumeSubheading {CISCO}{Bangalore, India} {SDE Intern}{May 2020 -- July 2020}
+	\resumeItemListStart 
+	\resumeItem{Developed a gRPC detector for Snort 2.9.16 and integrated it with FTD to enable alert generation.}
+	\resumeItem{Contributed to the preprocessor framework for scanning the message content transferred via gRPC for malicious payloads.}
+	\resumeItemListEnd
+
+	\resumeSubHeadingListEnd
+
+	\section{Publication}
+	\resumeSubHeadingListStart 
+	\resumeProjectHeading {\textbf{\href{https://link.springer.com/chapter/10.1007/978-981-99-9040-5_7}{Inception Time Model for Structural Damage Detection Using Vibration Measurements}}}{March 2024}
+	\resumeSubSubheading{In book: Fourth Congress on Intelligent Systems (pp.103-122), Springer, Singapore, 31 March 2024}{}
+	\resumeSubHeadingListEnd 
 	\vspace{2pt}
-	\href{https://github.com/Vikramadtya}{\raisebox{-0.2\height}\faGithub\ \underline{github.com/Vikramadtya}} ~
-	{\raisebox{-0.2\height}\faPhone\ \underline{+91\vphantom{/} 8383821898}}
-	\vspace{-8pt}
-\end{center}
+	\textit{\small DOI: 10.1007/978-981-99-9040-5\_7}
 
-%-----------EXPERIENCE-----------
-\section{Profile}
-Software Engineer with 4+ years of experience specializing in system design, algorithms, operating systems, and database management. Skilled in developing scalable, efficient software solutions with a strong foundation in data structures and performance optimization. Adept at collaborating with cross-functional teams, communicating complex technical concepts clearly, and adapting to evolving project requirements. Demonstrates a deep technical understanding of full-stack development and cloud platforms, maintaining a strong commitment to high standards of code quality, system reliability, and continuous improvement.
+	%-----------PROGRAMMING SKILLS-----------
+	\section{Technical Skills}
+	\begin{itemize}[leftmargin=0.01in, label={}]
+		\small{\item{ \textbf{Languages}{: Java, SQL, JavaScript, Python, C} \\ \textbf{Backend \& Frameworks}{: Spring Boot, Spring Framework, Hibernate, Micronaut, React.js, Next.js, REST APIs, Microservices, Event-Driven Architecture} \\ \textbf{Databases \& Caching}{: PostgreSQL, Oracle ATP, MongoDB, Redis, Lucene, OpenSearch } \\ \textbf{Cloud \& Infrastructure}{: OCI, AWS (SQS, SNS, EC2), Kafka, OCI Queue, Docker, Terraform, Kubernetes, OCI CI/CD} \\ \textbf{Observability \& Tools}{: FastMCP, Datadog, Grafana, JMeter, VisualVM, Maven} \\ }}
+	\end{itemize}
 
+	%-----------PROJECTS-----------
+	\section{Projects}
+	\resumeSubHeadingListStart 
+	
+	\resumeProjectHeading {\textbf{ExpenseSplit} $|$ \emph{React.js, NestJS, PostgreSQL, Redis, Drizzle ORM, Docker}}{\href{https://www.vikramaditya-singh.in}{demo}}
+	\resumeItemListStart 
+	\resumeItem{Built a modular expense-sharing platform with workspace-based multi-tenancy, Google OAuth/JWT authentication, CI/CD automation, and OpenAPI-driven API contracts.}
+	\resumeItem{Implemented a debt-simplification algorithm that computes net balances and minimizes settlement transactions.}
+	\resumeItemListEnd
+	
+	\resumeProjectHeading {\textbf{Meditor} $|$ \emph{Neutrino.js, React.js, Local LLMs, SQLite}}{\href{https://github.com/Vikramadtya/Meditor}{code}}
+	\resumeItemListStart 
+	\resumeItem{Built a Markdown editor with integrated local LLM inference for document summarization.}
+	\resumeItem{Designed a knowledge vault using Retrieval-Augmented Generation (RAG) to retrieve relevant notes and generate context-aware answers to user queries.}
+  \resumeItemListEnd 
+	
+  \resumeProjectHeading {\textbf{Domain Generating Algorithm Detection} $|$ \emph{Python, Keras, Pandas, Google Colab}}{\href{https://github.com/Vikramadtya/DGA-Detector}{code}}
+	\resumeItemListStart 
+	\resumeItem{Detected algorithmically generated domains with 96\% accuracy and classified them by DGA variant with 87\% accuracy.}
+	\resumeItem{Designed a two-stage approach combining feature extraction, clustering, and classification to identify known DGA families and detect previously unseen variants.}
+	\resumeItemListEnd 
+	
+	\resumeProjectHeading {\textbf{NeuralCook} $|$ \emph{NextJS, NestJS, PostgreSQL, GitHub Actions}}{\href{https://www.neuralcook.com}{demo} $|$ \href{https://github.com/Vikramadtya/Blog}{code}}
+	\resumeItemListStart 
+	\resumeItem{Built and deployed a full-stack technical publishing platform using NextJS and NestJS with PostgreSQL persistence.}
+	\resumeItem{Automated build and deployment workflows using GitHub Actions.} 
+	\resumeItemListEnd
 
+  \resumeProjectHeading {\textbf{Bookmarker} $|$ \emph{React.js, NestJS, Redis, PostgreSQL}}{\href{https://bookmarker-theta-three.vercel.app}{demo}}
+	\resumeItemListStart 
+	\resumeItem{Built a bookmark-sharing platform with a NestJS backend and PostgreSQL persistence, supporting categorization, auto-tagging, and search.}
+	\resumeItem{Integrated Redis caching to improve frequently accessed bookmark retrieval and reduce database load.}
+	\resumeItemListEnd 
+  
+	\resumeSubHeadingListEnd
 
+	%-----------ACHIEVEMENT-----------
+	\section{Achievements}
+	\resumeSubHeadingListStart 
+	
+	\resumeProjectHeading {\textbf{Smart India Hackathon}}{2019}
+	\resumeSubSubheading{Finalist for hardware edition}{} 
+	\resumeItemListStart 
+	\resumeItem{Built a Flutter/Firebase irrigation assistant and deployed a LoRaWAN network to extend connectivity and overcome range limitations.}
+	\resumeItemListEnd
 
+	\resumeSubHeadingListEnd
 
+	\section{Awards}
+	\resumeItemListStart 
+	\resumeItem{Cisco Recognition Awards: Connect Everything (4$\times$), Going Above and Beyond (2$\times$), Living Cisco's Principles (1$\times$), Driving the Highest Level of Achievement (1$\times$)}
+	\resumeItemListEnd
 
+	%-----------EDUCATION-----------
+	\section{Education}
+	\resumeSubHeadingListStart 
+	
+	\resumeSubheading {Indian Institute of Information Technology, Guwahati}{2017 -- 2021}
+	{Bachelor of Technology in Computer Science Engineering}{Cum. GPA: 8.48}
 
-\section{Experience}
-\resumeSubHeadingListStart
-
-
-\resumeSubheading
-{ORACLE}{Bangalore, India}
-{Senior Member of Technical Staff}{April 2025 – present}
-\resumeItemListStart
-\resumeItem{Developing high-performance microservice using Micronaut framework to integrate with Oracle Health EHR (Millennium)}
-
-\resumeItemListEnd
-
-\resumeSubheading
-{CISCO}{Bangalore, India}
-{Software Engineer III}{August 2021 - April 2025}
-\resumeItemListStart
-\resumeItem{Designed, implemented, and scaled the backend architecture for the Policy Analyzer and Optimizer (PAO) microservice, empowering users to analyze and optimize access rules across multiple firewall systems seamlessly on Cisco’s cloud platform.}
-\resumeItem{Implemented core analysis logic for anomaly detection engine in Policy Analyzer and Optimizer (PAO).}
-\resumeItem{Built a remediation service to address anomalies in access rules identified by the Policy Analyzer and Optimizer (PAO) on firewalls, automating the resolution of security policy issues and significantly enhancing operational efficiency.}
-\resumeItem{Engineered an access policy converter microservice, enabling the Policy Analyzer and Optimizer (PAO) to support policies from multiple firewall versions. This enhancement ensured compatibility across diverse systems, significantly improving usability and expanding the customer base.}
-\resumeItem{Created a pub/sub framework using AWS SQS and SNS, enabling systems to easily receive real-time analysis updates.}
-\resumeItem{Improved FMC device listing and management page performance, reducing load time by 96\%.}
-\resumeItem{Developed and maintained CI \& CD  pipelines, automating the build, test, and deployment processes for software artifacts.}
-\resumeItem{Designed and implemented custom Datadog dashboards and configured alerting mechanisms to monitor key system metrics and proactively detect issues.}
-\resumeItem{Spearheaded backend development across APIs, data persistence, validation, reporting, auditing, and telemetry to implement a Zero Trust network access policy on Firewall Management Center (FMC).}
-\resumeItem{Implemented auto-enrollment of certificates within the Zero Trust network access policy, significantly enhancing device integration and user experience.}
-\resumeItem{Enhanced the Intrusion Prevention System policies (IPS) and Network Analysis Policies (NAP) snapshot creation process, reducing operation time by 70\% and accelerating the deployment of updates from the management system to firewalls.}
-\resumeItem{Contributed to the creation of deployment configurations on Firewall Management Center (FMC) for the Zero Trust network access policy, ensuring smooth application on firewalls.}
-
-\resumeItem{Added API support in Firewall Management Center (FMC) for Snort3 rule querying based on the MITRE framework.}
-\resumeItem{Implemented changes to track and display access policy rule movements in the audit log and dealt preview, improving the user experience.}
-\resumeItem{Implemented backend changes to enable Elephant Flow Detection configuration in the Access Policy and facilitate deployment to firewalls.}
-\resumeItem{Integrated PDF reporting, audit logs, delta preview, and telemetry for Elephant Flow Detection and Threat Detection settings, enhancing visibility and monitoring capabilities.}
-\resumeItem{Implemented dynamic warning framework for FMC device upgrade flows using React.}
-\resumeItemListEnd
-% \vspace{-7pt}
-
-% \resumeSubheading
-% {}{}
-% {Software Engineer}{May 2020 – July 2020}
-% \resumeItemListStart
-% \resumeItem{Improved FMC device listing and management page performance, reducing load time by 96\%.}
-% \resumeItem{Added API support for Snort3 rule querying based on the MITRE framework.}
-% \resumeItem{Implemented changes to display rule movement in the audit log, enhancing the user experience.}
-% \resumeItem{Added Elephant Flow Detection to the Access Policy, including backend and deployment changes for Lina and Snort3.}
-% \resumeItem{Integrated PDF reporting, audit logs, delta preview, and telemetry for Elephant Flow Detection \& Threat Detection settings.}
-% \resumeItem{Implemented dynamic warning framework for FMC device upgrade flows using React.}
-% \resumeItemListEnd
-
-\vspace{7pt}
-
-\resumeSubheading
-{SECURONIX}{Pune, India}
-{SDE Intern}{August 2020 - April 2021}
-\resumeItemListStart
-\resumeItem{Developed email microservice and automated incident report generation using Spring Framework and Jasper Reports.}
-\resumeItem{Created scripts to automate various task.}
-\resumeItem{Automated report creation for analysis from the data for CTA
-team.}
-\resumeItemListEnd
-
-\vspace{7pt}
-
-
-\resumeSubHeadingListEnd
-\vspace{-5pt}
-
-%-----------PROJECTS-----------
-
-\resumeSubHeadingListStart
-\resumeSubheading
-{CISCO}{Bangalore, India}
-{SDE Intern}{May 2020 – July 2020}
-\resumeItemListStart
-\resumeItem{Developed a gRPC detector for Snort 2.9.16 and integrated it with FTD to enable alert generation.}
-\resumeItem{Worked on the preprocessor framework for scanning the
-message content transferred via. gRPC for malicious payloads.}
-\resumeItemListEnd
-
-\resumeSubHeadingListEnd
-
-\section{Publication}
-\vspace{-5pt}
-\resumeSubHeadingListStart
-\resumeProjectHeading
-{\textbf{Inception Time Model for Structural Damage Detection Using Vibration Measurements}}{March 2024}
-\resumeSubSubheading{  In book\: Fourth Congress on Intelligent Systems (pp.103-122), Springer, Singapore, 31 March 2024}{}
-\resumeSubHeadingListEnd
-\textit{\small \href{https://link.springer.com/chapter/10.1007/978-981-99-9040-5_7}}
-\vspace{-20pt}
-\textit{\small  DOI: 10.1007/978-981-99-9040-5\_7}
-\vspace{13pt}
-
-%
-%-----------PROGRAMMING SKILLS-----------
-\section{Technical Skills}
-\begin{itemize}[leftmargin=0.01in, label={}]
-	\small{\item{
-		\textbf{Languages}{: Java, SQL, Javascript, Python, C, Perl} \\
-		\textbf{Frameworks}{: ReactJs, NextJs, Spring, Spring Boot, Hibernate} \\
-		\textbf{Technologies}{: Docker, Jenkins, Git, Perforce, Terraform, Lucene} \\
-		\textbf{Databases}{: MariaDB, MongoDB, Redis } \\
-		\textbf{Cloud}{: AWS} \\
-		\textbf{Developer Tools}{: Intellij IDEA, Postman, Data Dog, Draw.io, LocalStack} \\
-	}}
-\end{itemize}
-\vspace{-16pt}
-
-%-----------PROJECTS-----------
-\section{Projects}
-\vspace{-5pt}
-\resumeSubHeadingListStart
-\resumeProjectHeading
-{\textbf{Domain Generating Algorithm Detection} $|$ \emph{Python, Keras, Pandas, Google Collab}}{\href{https://github.com/Vikramadtya/DGA-Detector}{code}}
-\resumeItemListStart
-\resumeItem{Detected algorithmically generated domains with 96\% accuracy and classified them by DGA variant with 87\% accuracy, using clustering to identify unknown DGA variants.}
-\resumeItemListEnd
-\vspace{-13pt}
-\resumeProjectHeading
-{\textbf{Sort Visualizer} $|$ \emph{NextJs, Vercel}}{\href{https://viki-sort-visualizer.vercel.app}{demo} $|$ \href{https://github.com/Vikramadtya/visualizer}{code}}
-\resumeItemListStart
-\resumeItem{Developed a dynamic web application that visually demonstrates the functionality of various sorting algorithms like Quick Sort, Merge Sort, Bubble Sort, and more.}
-\resumeItemListEnd
-\vspace{-13pt}
-\resumeProjectHeading
-{\textbf{Portfolio Site} $|$ \emph{NextJs, Vercel, Slack}}{\href{https://www.vikramaditya-singh.in}{demo}}
-\resumeItemListStart
-\resumeItem{Developed the frontend using Next.js and Tailwind CSS, deployed on Vercel, and integrated with Slack for messaging.}
-\resumeItem{Utilized Ummami for generating site analytics.}
-\resumeItemListEnd
-\vspace{-13pt}
-\resumeProjectHeading
-{\textbf{Tech Blog : NeuralCook} $|$ \emph{NextJs, Vercel, AWS Lambda , FireStore, MailGun, Github Action}}{\href{https://www.neuralcook.com}{demo} $|$ \href{https://github.com/Vikramadtya/Blog}{code}}
-\resumeItemListStart
-\resumeItem{Developed the frontend using Next.js and tailwind leveraged AWS Lambda and Firestore for the backend.}
-\resumeItem{Automated blog publication using GitHub Actions, utilizing GitHub as a CMS.
-}
-\resumeItem{Integrated with Slack for notifications and Mailgun for sending blog email alerts.}
-\resumeItemListEnd
-\resumeSubHeadingListEnd
-\vspace{-15pt}
-
-
-%-----------ACHIEVEMENT-----------
-\section{Achievements}
-\vspace{-5pt}
-\resumeSubHeadingListStart
-\resumeProjectHeading
-{\textbf{Smart India Hackathon}}{2019}
-\vspace{-28pt}
-\resumeSubheading
-{}{}
-{Finalist for hardware edition}{}
-\resumeItemListStart
-\resumeItem{
-	Developed a mobile-based irrigation assistant app using Flutter for the frontend and Firebase for backend integration.
-}
-\resumeItem{
-Deployed a LoRaWAN network to extend range and overcome connectivity limitations.}
-
-\resumeItemListEnd
-
-\resumeSubHeadingListEnd
-\vspace{-15pt}
-
-\section{Awards}
-\vspace{-5pt}
-\resumeSubHeadingListStart
-\resumeProjectHeading
-{\textbf{CISCO}}{}
-\vspace{-15pt}
-
-\resumeItemListStart
-\resumeItem{Connect Everything x4}
-\resumeItem{Going Above and Beyond x2}
-\resumeItem{Living Cisco's Principles x1}
-\resumeItem{Driving the Highest Level of Achievement x1} 
-\resumeItemListEnd
-
-\resumeSubHeadingListEnd
-\vspace{-15pt}
-
-
-
-%-----------EDUCATION-----------
-\section{Education}
-\resumeSubHeadingListStart
-\resumeSubheading
-{Indian Institute of Information Technology, Guwahati}{2017-2021}
-{Bachelor of Technology in Computer Science Engineering}{Cum. GPA: 8.48}
-
-\resumeSubheading
-{Modern Delhi Public School, Faridabad}{2015 - 2016}
-{12th Science from CBSE Board}{87\%}
-
-\resumeSubheading
-{Dynasty International School, Faridabad}{2013-2014}
-{10th from CBSE Board}{Cum. GPA: 9.8}
-
-\resumeSubHeadingListEnd
-
-
-
-% %------RELEVANT COURSEWORK-------
-% \section{Relevant Coursework}
-% %\resumeSubHeadingListStart
-% \begin{multicols}{3}
-% 	\begin{itemize}[itemsep=-5pt, parsep=3pt]
-% 		\item\small Data Structure \& Algorithms
-% 		\item Computer Network \& Security
-% 		\item Operating System
-% 		\item RDBMS
-% 		\item OOP \& Design Patterns
-% 		\item Software Engineering
-% 		\item Deep Learning
-% 	\end{itemize}
-% \end{multicols}
-% \vspace*{2.0\multicolsep}
-%\resumeSubHeadingListEnd
-
+	\resumeSubHeadingListEnd
 \end{document}

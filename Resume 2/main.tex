@@ -8,6 +8,10 @@
 \documentclass[]{hieudo-build}
 
 
+\usepackage{paracol}
+\columnratio{0.34}
+\setlength{\columnsep}{4em}
+
 \begin{document}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -17,16 +21,20 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \namesection{\fontsize{51}{30} \selectfont Vikramaditya Singh}
 {\urlstyle{same}
+	\faGlobe \href{https://www.vikramaditya-singh.in}{ vikramaditya-singh.in} \\
 	\faEnvelope \href{mailto:vikramaditya.bhadoria@gmail.com}{ vikramaditya.bhadoria@gmail.com} \\
-	\faLinkedinSquare \href{https://www.linkedin.com/in/VikramadityaSngh}{ linkedin/VikrmadityaSngh}
+	\faLinkedinSquare \href{https://www.linkedin.com/in/VikramadityaSngh}{ linkedin/VikrmadityaSngh} \\
+	\faGithub \href{https://github.com/Vikramadtya}{ github/Vikramadtya} \\
+	\faPhone \href{tel:+918383821898}{ +91 8383821898}
 }
-    
+
+\begin{paracol}{2}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %     COLUMN ONE
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{minipage}[t]{0.34\textwidth} 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     EDUCATION
@@ -39,113 +47,51 @@ Computer Science Engineering \\
 Cum. GPA: 8.48\\
 \sectionsep
 
-\subsection{Modern Delhi Public School}
-\descript{12th Science from CBSE , May 2016}
-Physics(A1), Maths (A1), Chemistry(A2) and 87\% (Overall)\\
-\sectionsep
-
-\subsection{Dynasty International School}
-\descript{10th from CBSE , May 2014}
-9.8 CGPA
-\sectionsep
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     SKILLS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Skills}
 \location{Languages}
-Java, C, Python, Go, Perl,  \\ 
-Javascript \\
-\location{Frameworks}
-ReactJs, NextJs, Spring, Spring Boot, Hibernate \\
-\location{Databases}
-MySQL, MariaDB, MongoDB, Redis \\
-\location{Cloud}
-AWS \\
-\location{Tools}
-Swagger, Postman, Nginx \\
-\location{Others}
-Docker, Jenkins, Git, Terraform, Lucene \\
-\location{Methodologies}
-TDD, Agile \\
-\location{AI}
-Deep Learning, Machine Learning \\
-
-% \location{ }
-
-% \sectionsep
-% \subsection{Languages}
-% \location{Native fluency} English, Vietnamese\\
+Java, SQL, JavaScript, Python, C \\
+\location{Backend \& Frameworks}
+Spring Boot, Spring Framework, Hibernate, Micronaut, React.js, Next.js, REST APIs, Microservices, Event-Driven Architecture \\
+\location{Databases \& Caching}
+PostgreSQL, Oracle ATP, MongoDB, Redis, Lucene, OpenSearch \\
+\location{Cloud \& Infrastructure}
+OCI, AWS (SQS, SNS, EC2), Kafka, OCI Queue, Docker, Terraform, Kubernetes, OCI CI/CD \\
+\location{Observability \& Tools}
+FastMCP, Datadog, Grafana, JMeter, VisualVM, Maven \\
 \sectionsep
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %     HACKATHONS
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% \section{Hackathons}
-% HackMIT \textbullet{} hackNY \\
-% WearHacks NY \textbullet{} Hackademics VN \\
-% \sectionsep
-
-
-
-
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     AWARDS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Awards} 
+\location{Cisco Recognition Awards}
+Connect Everything (4$\times$) \\
+Going Above and Beyond (2$\times$) \\
+Living Cisco's Principles (1$\times$) \\
+Driving Highest Level of Achievement (1$\times$) \\
 \sectionsep
-% \DTMsetdatestyle{mylastupdate}
-% \DTMdisplaydate{\the\year}{\the\month}{\the\day}{-1}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN TWO
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.65\textwidth} 
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     EXPERIENCE
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\section{Profile}
-Computer science engineering graduate with expertise in Algorithms, Data Structures, Application Development, Linux, Networking, Database and have good knowledge of Cyber-Security. I am a good listener, imaginative, eager to learn, improve, and highly adaptable. Reliability, ownership, and excellent interpersonal skills are my core qualities.
-
-\sectionsep
-
-\section{Experience}
-
-\workplace{CISCO}{August 2021 - present}\\
-\position{Software Engineer 2}{Bangalore, India}
-\vspace{0.9em} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
- \item Improved the NAP \& IPS policy snapshot performance reducing the operation time by 70\%, which in turn reduced the time to deploy the configuration to the devices from the FMC.
- \item Designed \& implemented the Zero trust policy on FMC which is a key feature of the product. Implemented the complete backend which included changes in the API, global search, database,  service \& model layer, various validations, reporting, audit \& telemetery. 
- \item Implemented the changes needed for deploying the Zero Trust policy to the device. Added the Snort3 configuration creation \& handled the Lina CLI generation by enhancing the parser with multiple new commands.
- \item Added ability to auto-enroll the certificate selected within the Zero trust policy onto the device which greatly enhanced the user experience.
- \item Extracted the Rule Conflict Detection \& Object overlap feature available for the Access Control Policy as a rule analyzer library and enhanced its logic. This library is used on both Firepower Management Console (FMC) \& Cloud Defense Orchestrator (CDO)
- \item Added the expired rule detection \& mergeable rule detection to the rule analyzer library. 
- \item Created the complete CI/CD pipeline for the library on Jenkins \& maintained its various release on the Jfrog artifactory.
- \item Created micro-service using the Rule Analyser library to provide analysis for the cdFMC enrolled in Cisco Defense Orchestrator. Worked with AWS services like S3, SQS, SNS \& Elastic Container. This enabled the customer to optimise there policy configuration
-\end{tightemize}
-
-
-
-% \workplace{}{May 2020 – July 2020}\\
-
-\end{minipage} 
-
-% 
 
 \newpage
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%
-%     COLUMN ONE
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\begin{minipage}[t]{0.34\textwidth} 
+\section{Publication}
+\runsubsection{Inception Time Model for Structural Damage Detection Using Vibration Measurements}
+\descript{March 2024}
+In book: Fourth Congress on Intelligent Systems (pp.103-122), Springer, Singapore\\
+\textit{DOI: 10.1007/978-981-99-9040-5\_7}
+\sectionsep
+
+\section{Hackathon}
+
+\workplace{Smart India Hackathon}{2019}\\
+\position{Finalist for hardware edition}{}
+
+\begin{tightemize}
+\item Built a Flutter/Firebase irrigation assistant and deployed a LoRaWAN network to extend connectivity and overcome range limitations.
+\end{tightemize}
+\sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     COURSEWORK
@@ -161,94 +107,132 @@ Deep Learning \\
 
 \sectionsep
 
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% %     AWARDS
-% %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\section{Awards} 
-Dean's List\\
-\sectionsep
-
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%     ADDITIONAL INFORMATION
+%     ACTIVITIES
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Activities}
 Programming Club Coordinator\\
 \sectionsep
 
-\section{Hackathon}
-
-\workplace{Smart India Hackathon}{2019}\\
-\position{Runner up}{Chandigarh, India}
-
-
-\sectionsep
-
-
-
-% \DTMsetdatestyle{mylastupdate}
-% \DTMdisplaydate{\the\year}{\the\month}{\the\day}{-1}
+\switchcolumn
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %
 %     COLUMN TWO
 %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-\end{minipage} 
-\hfill
-\begin{minipage}[t]{0.65\textwidth} 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     PROFILE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Profile}
+Senior Software Engineer with 5+ years of experience designing and building event-driven backend systems, microservices, and cloud-native platforms. Strong background in Java, OCI, AWS, databases, distributed systems, and performance optimisation, with experience owning services end-to-end from architecture and API design through deployment and observability. Experienced in Spec-Driven Development (SDD), with a track record of mentoring engineers and establishing reusable engineering foundations across teams. Effective in cross-team collaboration, translating complex technical concepts into clear solutions, and driving solutions amid evolving product and engineering requirements.
+
+\sectionsep
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     EXPERIENCE
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\section{Experience}
+
+\workplace{ORACLE}{April 2025 -- present}\\
+\position{Senior Member of Technical Staff}{Bangalore, India}
+
+\begin{tightemize}
+ \item Designed and developed an event-driven microservice that ingests clinical-data changes and generates safety-critical advisories.
+ \item Designed and implemented a low-latency notification microservice enabling automatic data refresh for the Patient List UI.
+ \item Created a reusable microservice scaffolding template and shared integration framework for the platform's clinical-data layer, decreasing new-service setup time by 30\%.
+ \item Implemented an asynchronous PDF generation microservice for patient-list reporting using Thymeleaf and OpenHTMLToPDF.
+ \item Owned CI/CD pipelines for the Patient Advisory, Patient List, Care Notification, and Consult microservices using OCI CI/CD, and built Grafana dashboards and alerts for service monitoring and proactive issue detection.
+ \item Designed and implemented the core Patient List and Patient Detail APIs, then enhanced their performance by 60\% through query optimization and caching.
+ \item Converted multiple OpenSearch queries to SQL for the Oracle ATP database, simplifying and optimizing them to improve performance by 12\%.
+ \item Developed a data migration module for Acute Organiser to migrate multiple clinical concepts from Gen 1 to Gen 2 EHRC.
+ \item Implemented 5+ FHIR clinical concepts into data models and onboarded them in the EHRC framework, enabling the platform to support new clinical data types and use cases.
+ \item Designed and implemented an MCP service and reusable framework using FastMCP to query Acute Organizer services.
+ \item Applied a Spec-Driven Development (SDD) approach to design and implement consult microservice, reducing development time by 40\%.
+\end{tightemize}
+\sectionsep
+
+\workplace{CISCO}{August 2021 -- April 2025}\\
+\position{Software Engineer III}{Bangalore, India}
+
+\begin{tightemize}
+ \item Architected and scaled the backend for the Policy Analyser and Optimiser (PAO) platform from the ground up, including anomaly detection, automated remediation, and a multi-version policy converter, enabling analysis across 300+ cloud firewall configurations.
+ \item Built a pub/sub framework on AWS SQS/SNS that delivered real-time analysis updates across 4+ downstream services.
+ \item Reduced FMC device listing and management page load time by 96\% through pagination, caching, query optimization.
+ \item Cut Intrusion Prevention System (IPS) and Network Analysis Policy (NAP) snapshot creation time by 70\%, accelerating policy deployment from management center to firewalls for the enterprise customers.
+ \item Led backend development for a Zero Trust network access policy feature on Firewall Management Center, spanning APIs, persistence, validation, auditing, and telemetry, including automated certificate auto-enrollment that reduced device onboarding time by 25\%.
+ \item Extended FMC's API surface to support Snort3 rule querying against the MITRE framework, and shipped audit-log/delta-preview visibility for access-policy rule changes, improving traceability for security teams.
+ \item Delivered end-to-end support for Elephant Flow Detection and Threat Detection, spanning configuration, deployment, PDF reporting, and audit telemetry.
+ \item Owned CI/CD pipeline automation for build, test, and deployment, and built custom Datadog dashboards with proactive alerting, reducing incident detection time by 70\%.
+\end{tightemize}
+\sectionsep
+
+\workplace{SECURONIX}{August 2020 -- April 2021}\\
+\position{SDE Intern}{Pune, India}
+
+\begin{tightemize}
+ \item Developed email microservice and automated incident report generation using Spring Framework and Jasper Reports.
+\end{tightemize}
+\sectionsep 
+
+\workplace{CISCO}{May 2020 -- July 2020}\\
+\position{SDE Intern}{Bangalore, India}
+
+\begin{tightemize}
+ \item Developed a gRPC detector for Snort 2.9.16 and integrated it with FTD to enable alert generation.
+ \item Contributed to the preprocessor framework for scanning the message content transferred via gRPC for malicious payloads.
+\end{tightemize}
+\sectionsep
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %     PROJECTS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\position{Software Engineer 1}{May 2020 – July 2020}
-\vspace{0.9em} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Improved the Firepower management console's device listing \& management page performance, reduced the page load time by 96\%. 
-\item Added Elephant Flow Detection feature to the Access Policy by implementing the complete backend which included changes in the database schema, validations, models \& service layer. Also did changes for deploying the configuration to the Lina \& Snort3 on the device.
-\item Added pdf reporting, audit log, delta preview, telemetry functionality for the Elephant Flow Detection \& Threat Detection Setting feature.
-\item Implemented dynamic warning framework for the device upgrade flow on the FMC using React.
-\end{tightemize}
-\sectionsep
-
-\workplace{SECURONIX}{April 2021 - August 2020}\\
-\position{SDE Intern}{Bangalore, India}
-\vspace{0.9em} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Worked with spring framework on email microservice and automatic incident report creation using jasper report. 
-\item Wrote various scripts for automating querying and updating tasks. 
-\item Automated report creation for analysis from the data for CTA team. 
-\end{tightemize}
-\sectionsep 
-
-\workplace{CISCO}{May 2020 – July 2020}\\
-\position{SDE Intern}{Bangalore, India}
-\vspace{0.9em} % Hacky fix for awkward extra vertical space
-\begin{tightemize}
-\item Worked on Snort 2.9.16 \& developed a gRPC detector and integrated it with the FMC console to enable generation of alerts.
-\item Worked on the preprocessor framework for scanning the message content transferred via. gRPC for malicious payloads.
-\end{tightemize}
-
-\sectionsep
-
 \section{Projects}
-\runsubsection{Domain Generating Algorithm Detection}
-\descript{}
-A Domain Generating Algorithm (DGA) is a program or subroutine that provides malware with new domains on-demand or on the ﬂy. Detected the algorithmically generated domain with an accuracy of 96\% and classified the detected domains to its respective DGA variant by accuracy of 87\% and was able to detect unknown DGA variants by using clustering.
+
+\runsubsection{Domain Generating Algorithm Detection} $|$ \href{https://github.com/Vikramadtya/DGA-Detector}{code}
+\descript{Python, Keras, Pandas, Google Colab}
+
+\begin{tightemize}
+\item Detected algorithmically generated domains with 96\% accuracy and classified them by DGA variant with 87\% accuracy.
+\item Designed a two-stage approach combining feature extraction, clustering, and classification to identify known DGA families and detect previously unseen variants.
+\end{tightemize}
 \sectionsep
 
-\runsubsection{Leave Management System}
-\descript{}
-% \location{Leave Management System}
-Built a complete leave management system using Flask and VueJs with features like email notification, visualising the leaves records etc. Created the SRS, ER, Data flow, Class, Sequence and Use case diagram. Followed the TDD approach and released it as a docker image.
+\runsubsection{Bookmarker} $|$ \href{https://bookmarker-theta-three.vercel.app}{demo}
+\descript{React.js, NestJS, Redis, PostgreSQL}
 
+\begin{tightemize}
+\item Built a bookmark-sharing platform with a NestJS backend and PostgreSQL persistence, supporting categorization, auto-tagging, and search.
+\item Integrated Redis caching to improve frequently accessed bookmark retrieval and reduce database load.
+\end{tightemize}
 \sectionsep 
 
+\runsubsection{Meditor} $|$ \href{https://github.com/Vikramadtya/Meditor}{code}
+\descript{Neutrino.js, React.js, Local LLMs, SQLite}
+
+\begin{tightemize}
+\item Built a Markdown editor with integrated local LLM inference for document summarization.
+\end{tightemize}
 \sectionsep 
 
-\end{minipage} 
+\runsubsection{ExpenseSplit} $|$ \href{https://www.vikramaditya-singh.in}{demo}
+\descript{React.js, NestJS, PostgreSQL, Redis, Drizzle ORM, Docker}
 
+\begin{tightemize}
+\item Built a modular expense-sharing platform with workspace-based multi-tenancy, Google OAuth/JWT authentication, CI/CD automation, and OpenAPI-driven API contracts.
+\item Implemented a debt-simplification algorithm that computes net balances and minimizes settlement transactions.
+\end{tightemize}
+\sectionsep 
 
-\end{document}  
+\runsubsection{NeuralCook} $|$ \href{https://www.neuralcook.com}{demo} $|$ \href{https://github.com/Vikramadtya/Blog}{code}
+\descript{NextJS, NestJS, PostgreSQL, GitHub Actions}
+
+\begin{tightemize}
+\item Built and deployed a full-stack technical publishing platform using NextJS and NestJS with PostgreSQL persistence.
+\item Automated build and deployment workflows using GitHub Actions.
+\end{tightemize}
+\sectionsep 
+
+\end{paracol}
+\end{document}

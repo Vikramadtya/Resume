@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume History</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/latex.min.js"></script>
+</head>
+<body class="bg-gray-50 h-screen flex flex-col font-sans">
+    <!-- Header -->
+    <header class="bg-white shadow-sm border-b border-gray-200 z-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+            <h1 class="text-xl font-bold text-gray-900">Resume Portfolio</h1>
+            <div class="flex space-x-4">
+                <button id="tab-resume1" onclick="switchResume('resume1')" class="px-3 py-2 text-sm font-medium rounded-md bg-blue-100 text-blue-700">Resume 1</button>
+                <button id="tab-resume2" onclick="switchResume('resume2')" class="px-3 py-2 text-sm font-medium rounded-md text-gray-500 hover:text-gray-700">Resume 2</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="flex-1 flex overflow-hidden">
+        <!-- Sidebar Timeline -->
+        <div class="w-80 bg-white border-r border-gray-200 overflow-y-auto">
+            <div class="p-4 border-b border-gray-200 bg-gray-50 sticky top-0">
+                <h2 class="text-sm font-semibold text-gray-500 uppercase tracking-wider">Version History</h2>
+            </div>
+            <ul id="timeline" class="divide-y divide-gray-200">
+                <!-- Timeline items injected via JS -->
+            </ul>
+        </div>
+
+        <!-- Viewer -->
+        <div class="flex-1 flex flex-col bg-gray-100 relative">
+            <!-- View Tabs -->
+            <div class="absolute top-4 right-6 bg-white rounded-lg shadow-md p-1 flex space-x-1 z-20">
+                <button id="view-pdf" onclick="switchView('pdf')" class="px-4 py-2 text-sm font-medium rounded-md bg-gray-100 text-gray-900">PDF View</button>
+                <button id="view-tex" onclick="switchView('tex')" class="px-4 py-2 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-50 hover:text-gray-900">LaTeX Source</button>
+            </div>
+
+            <!-- PDF Container -->
+            <div id="pdf-container" class="flex-1 h-full w-full">
+                <iframe id="pdf-frame" class="w-full h-full border-0" src=""></iframe>
+            </div>
+
+            <!-- Code Container -->
+            <div id="tex-container" class="hidden flex-1 h-full w-full overflow-y-auto bg-[#0d1117] p-6">
+                <pre><code id="tex-code" class="language-latex text-sm"></code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let historyData = [];
+        let currentResume = 'resume1';
+        let currentHash = '';
+        let currentView = 'pdf';
+
+        async function loadHistory() {
+            try {
+                const response = await fetch('history.json');
+                historyData = await response.json();
+                
+                // Sort by date descending
+                historyData.sort((a, b) => new Date(b.date) - new Date(a.date));
+                
+                if (historyData.length > 0) {
+                    renderTimeline();
+                    selectCommit(historyData[0].hash);
+                }
+            } catch (error) {
+                console.error("Error loading history:", error);
+                document.getElementById('timeline').innerHTML = '<li class="p-4 text-red-500 text-sm">Could not load history. Ensure GitHub Actions has run.</li>';
+            }
+        }
+
+        function renderTimeline() {
+            const timeline = document.getElementById('timeline');
+            timeline.innerHTML = historyData.map(commit => {
+                const date = new Date(commit.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+                return `
+                    <li>
+                        <button onclick="selectCommit('${commit.hash}')" id="commit-${commit.hash}" class="w-full text-left px-4 py-4 hover:bg-gray-50 focus:outline-none transition-colors duration-150 border-l-4 border-transparent">
+                            <div class="flex justify-between items-center mb-1">
+                                <span class="text-sm font-medium text-gray-900 truncate">${commit.message}</span>
+                            </div>
+                            <div class="flex justify-between items-center text-xs text-gray-500">
+                                <span>${date}</span>
+                                <span class="font-mono bg-gray-100 px-1.5 py-0.5 rounded">${commit.hash}</span>
+                            </div>
+                        </button>
+                    </li>
+                `;
+            }).join('');
+        }
+
+        async function selectCommit(hash) {
+            // Update UI selection
+            if (currentHash) {
+                const oldBtn = document.getElementById(`commit-${currentHash}`);
+                if (oldBtn) {
+                    oldBtn.classList.remove('bg-blue-50', 'border-blue-500');
+                    oldBtn.classList.add('border-transparent');
+                }
+            }
+            const newBtn = document.getElementById(`commit-${hash}`);
+            if (newBtn) {
+                newBtn.classList.remove('border-transparent');
+                newBtn.classList.add('bg-blue-50', 'border-blue-500');
+            }
+            
+            currentHash = hash;
+            updateViewer();
+        }
+
+        function switchResume(resume) {
+            currentResume = resume;
+            
+            // Update tabs
+            document.getElementById('tab-resume1').className = resume === 'resume1' 
+                ? 'px-3 py-2 text-sm font-medium rounded-md bg-blue-100 text-blue-700' 
+                : 'px-3 py-2 text-sm font-medium rounded-md text-gray-500 hover:text-gray-700';
+            document.getElementById('tab-resume2').className = resume === 'resume2' 
+                ? 'px-3 py-2 text-sm font-medium rounded-md bg-blue-100 text-blue-700' 
+                : 'px-3 py-2 text-sm font-medium rounded-md text-gray-500 hover:text-gray-700';
+                
+            updateViewer();
+        }
+
+        function switchView(view) {
+            currentView = view;
+            
+            // Update tabs
+            document.getElementById('view-pdf').className = view === 'pdf'
+                ? 'px-4 py-2 text-sm font-medium rounded-md bg-gray-100 text-gray-900'
+                : 'px-4 py-2 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-50 hover:text-gray-900';
+            document.getElementById('view-tex').className = view === 'tex'
+                ? 'px-4 py-2 text-sm font-medium rounded-md bg-gray-100 text-gray-900'
+                : 'px-4 py-2 text-sm font-medium rounded-md text-gray-500 hover:bg-gray-50 hover:text-gray-900';
+                
+            // Show/Hide containers
+            document.getElementById('pdf-container').classList.toggle('hidden', view !== 'pdf');
+            document.getElementById('tex-container').classList.toggle('hidden', view !== 'tex');
+            
+            updateViewer();
+        }
+
+        async function updateViewer() {
+            if (!currentHash) return;
+            
+            const pdfUrl = \`history/\${currentResume}-\${currentHash}.pdf\`;
+            const texUrl = \`history/\${currentResume}-\${currentHash}.tex\`;
+            
+            if (currentView === 'pdf') {
+                document.getElementById('pdf-frame').src = pdfUrl;
+            } else {
+                try {
+                    const response = await fetch(texUrl);
+                    if (response.ok) {
+                        const tex = await response.text();
+                        document.getElementById('tex-code').textContent = tex;
+                        delete document.getElementById('tex-code').dataset.highlighted;
+                        hljs.highlightElement(document.getElementById('tex-code'));
+                    } else {
+                        document.getElementById('tex-code').textContent = "% LaTeX source not available for this version.";
+                    }
+                } catch (e) {
+                    document.getElementById('tex-code').textContent = "% Error loading LaTeX source.";
+                }
+            }
+        }
+
+        // Initialize
+        loadHistory();
+    </script>
+</body>
+</html>

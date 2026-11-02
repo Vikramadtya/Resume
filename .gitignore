@@ -1,6 +1,5 @@
 .DS_Store
 *.pdf
-!Assets/**
 *.aux
 *.log
 *.out

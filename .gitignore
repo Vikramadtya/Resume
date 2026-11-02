@@ -1,1 +1,10 @@
 .DS_Store
+*.pdf
+!Assets/**
+*.aux
+*.log
+*.out
+*.fls
+*.fdb_latexmk
+*.xdv
+_site/

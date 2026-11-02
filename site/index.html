@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vikramaditya Singh Resume</title>
+    <meta name="description" content="Resume of Vikramaditya Singh.">
+    <style>
+        :root { --bg: #f6f7f9; --card: #fff; --text: #1a1c1e; --muted: #5f6368; --accent: #1a56db; --border: #dfe1e5; }
+        @media (prefers-color-scheme: dark) {
+            :root { --bg: #111317; --card: #1b1e23; --text: #e8eaed; --muted: #9aa0a6; --accent: #8ab4f8; --border: #33373d; }
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.5 system-ui, sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+        header { background: var(--card); border-bottom: 1px solid var(--border); padding: 12px 16px; display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; }
+        h1 { font-size: 1.1rem; margin: 0; }
+        nav { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+        button, .btn { font: inherit; font-size: .9rem; padding: 6px 12px; border-radius: 6px; border: 1px solid var(--border); background: var(--card); color: var(--text); cursor: pointer; text-decoration: none; }
+        button[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+        .btn.primary { background: var(--accent); border-color: var(--accent); color: var(--bg); }
+        main { flex: 1; display: flex; padding: 16px; }
+        iframe { flex: 1; width: 100%; min-height: 80vh; border: 1px solid var(--border); border-radius: 8px; background: var(--card); }
+        footer { padding: 12px 16px; text-align: center; color: var(--muted); font-size: .85rem; }
+        footer a { color: var(--accent); }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Vikramaditya Singh</h1>
+        <nav>
+            <button id="tab-1" aria-pressed="true">Resume 1</button>
+            <button id="tab-2" aria-pressed="false">Resume 2</button>
+            <a id="download" class="btn primary" href="resume-1.pdf" download>Download PDF</a>
+        </nav>
+    </header>
+    <main>
+        <iframe id="viewer" src="resume-1.pdf" title="Resume PDF"></iframe>
+    </main>
+    <footer>
+        <a href="https://github.com/Vikramadtya/Resume">Source</a> ·
+        <a href="https://github.com/Vikramadtya/Resume/releases">Previous versions</a>
+    </footer>
+    <script>
+        const viewer = document.getElementById('viewer');
+        const download = document.getElementById('download');
+        function show(n) {
+            const file = `resume-${n}.pdf`;
+            viewer.src = file;
+            download.href = file;
+            for (const i of [1, 2]) {
+                document.getElementById(`tab-${i}`).setAttribute('aria-pressed', String(i === n));
+            }
+            history.replaceState(null, '', `#${n}`);
+        }
+        document.getElementById('tab-1').onclick = () => show(1);
+        document.getElementById('tab-2').onclick = () => show(2);
+        if (location.hash === '#2') show(2);
+    </script>
+</body>
+</html>

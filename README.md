@@ -1,40 +1,44 @@
 # Resume
-My resume
 
-## Checker 
-- https://www.resumego.net/resume-checker/
+Resumes by Vikramaditya Singh, written in LaTeX.
 
-## Formatter
-- https://c.albert-thompson.com/latex-pretty/
+**Live site:** https://vikramadtya.github.io/Resume/
 
+## How it works
 
+Pushing to `main` runs the [build workflow](.github/workflows/build.yml), which compiles both resumes and deploys the PDFs and the viewer in `site/` to GitHub Pages. Compiled PDFs are not committed.
 
-## Resume 1
+### Versions
 
-| Resume PDF    | Latex |
-| -------- | ------- |
-| [Link](https://github.com/Vikramadtya/Resume/blob/main/Resume%201/resume.pdf)  | [Link](https://www.overleaf.com/project/66f4e67515a2df56ea21a8d1)    |
+Tag a version to publish it as a GitHub Release with both PDFs attached:
 
+```bash
+git tag v2026-11 && git push origin v2026-11
+```
 
-### Score
+Older versions are listed under [Releases](https://github.com/Vikramadtya/Resume/releases); the full history is in git.
 
-![](https://github.com/Vikramadtya/Resume/blob/main/Assets/Score.png)
+### Build locally
 
-## Resume 2
+```bash
+cd "Resume 1" && latexmk -pdf main.tex
+cd "Resume 2" && latexmk -xelatex main.tex
+```
 
-| Resume PDF    | Latex |
-| -------- | ------- |
-| [Link](https://github.com/Vikramadtya/Resume/blob/main/Resume%202/resume.pdf)  | [Link](https://www.overleaf.com/project/66f4e67515a2df56ea21a8d1)    |
+Before the first deploy, set Settings > Pages > Source to **GitHub Actions**.
 
+## Resumes
 
-## Local Portfolio Preview
+| Resume | Source | Overleaf |
+| ------ | ------ | -------- |
+| Resume 1 | [main.tex](Resume%201/main.tex) | [Link](https://www.overleaf.com/project/66f4e67515a2df56ea21a8d1) |
+| Resume 2 | [main.tex](Resume%202/main.tex) | [Link](https://www.overleaf.com/project/66f4e67515a2df56ea21a8d1) |
 
-This repository contains a dynamic, GitHub Pages-powered web portfolio that automatically compiles and tracks historical versions of the resumes using GitHub Actions.
+### Score (Resume 1)
 
-To run and preview the frontend locally:
-1. Ensure you have the dummy historical data populated in `history.json` and `history/`
-2. Start a local Python server to bypass browser CORS restrictions:
-   ```bash
-   python3 -m http.server 8000
-   ```
-3. Open `http://localhost:8000` in your web browser.
+![](Assets/Score.png)
+
+## Tools
+
+- Checker: https://www.resumego.net/resume-checker/
+- Formatter: https://c.albert-thompson.com/latex-pretty/

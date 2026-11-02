@@ -35,10 +35,10 @@ jobs:
       - name: Show LaTeX errors
         if: failure()
         run: |
-          for f in "Resume 1/main.log" "Resume 2/main.log"; do
-            [ -f "$f" ] || continue
-            msg=$(grep -A4 -m5 '^!' "$f" | head -30 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
-            echo "::error title=$f::$msg"
+          for d in "Resume 1" "Resume 2"; do
+            files=$(ls -A "$d" | tr '\n' ' ')
+            tail=$(tail -n 25 "$d/main.log" 2>&1 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=$d::files: $files%0A$tail"
           done
 
       - name: Assemble site

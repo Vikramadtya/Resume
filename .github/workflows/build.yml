@@ -32,6 +32,15 @@ jobs:
           working_directory: Resume 2
           latexmk_use_xelatex: true
 
+      - name: Show LaTeX errors
+        if: failure()
+        run: |
+          for f in "Resume 1/main.log" "Resume 2/main.log"; do
+            [ -f "$f" ] || continue
+            msg=$(grep -A4 -m5 '^!' "$f" | head -30 | sed 's/%/%25/g' | awk '{printf "%s%%0A", $0}')
+            echo "::error title=$f::$msg"
+          done
+
       - name: Assemble site
         run: |
           mkdir -p _site
